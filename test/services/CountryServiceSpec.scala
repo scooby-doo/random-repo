@@ -19,4 +19,8 @@ class CountryServiceSpec extends FunSuite with BeforeAndAfter{
   test("getCountryCode when country is not found"){
     assert("" === CountryService.getCountryCode("not found country"))
   }
+
+  test("getCountryCode when only one letter is passed as parameter is not found"){
+    assert("" === CountryService.getCountryCode("n"))
+  }
 }

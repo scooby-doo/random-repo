@@ -22,11 +22,6 @@ object CountryService {
       .collect()
       .map(row => (row.getString(0), JaroMetric.compare(name, row.getString(1))
       ))
-    if(result.length == 0) "" else returnCode(result.maxBy(_._2))
-  }
-
-  def returnCode(result: (String, Option[Double])): String = result._2.get match {
-    case 0.0 => ""
-    case _ => result._1
+    if(result.length == 0) "" else result.maxBy(_._2)_1
   }
 }
